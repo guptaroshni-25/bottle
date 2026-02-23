@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Copy to Clipboard</title>
+</head>
+<body>
+    <textarea id="text1" readonly>
+Steps:
+Open UiPath Studio and click on Process to create a new project.
+Open Main.xaml.
+In Variables panel, create three variables:
+firstName (String)
+lastName (String)
+fullName (String)
+Drag Input Dialog activity into Main Sequence.
+Set Result = firstName
+Set Label = Enter First Name
+Drag another Input Dialog below the first one.
+Set Result = lastName
+Set Label = Enter Last Name
+Drag Assign activity below the Input Dialogs.
+Left = fullName
+Right = firstName + " " + lastName
+Drag Message Box activity below Assign.
+Set Text = fullName
+Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text1', this)">1.Use two Input Dialogs for First Name and Last Name and show in Message Box. and eigen</button>
+
+    <textarea id="text2" readonly>
+Steps:
+1.Open UiPath Studio and create a New Process project.
+2.In Main.xaml, create variables:
+      o	num1 (String)
+      o	num2 (String)
+      o	addResult (Int32)
+      o	subResult (Int32)
+      o	mulResult (Int32)
+      o	divResult (Int32)
+3.Drag Input Dialog into Main Sequence.
+      o	Set Result = num1
+      o	Set Label = Enter First Number
+4.Drag second Input Dialog below the first one.
+      o	Set Result = num2
+      o	Set Label = Enter Second Number
+5.Drag 4 Assign activities below the dialogs and set:
+      o	addResult = CInt(num1) + CInt(num2)
+      o	subResult = CInt(num1) - CInt(num2)
+      o	mulResult = CInt(num1) * CInt(num2)
+      o	divResult = CInt(num1) / CInt(num2)
+6.Drag Message Box below Assign activities.
+      o	Set Text = "Add = " + addResult.ToString + vbNewLine + "Sub = " + subResult.ToString + vbNewLine + "Mul = " + mulResult.ToString + vbNewLine + "Div = " + divResult.ToString
+7.Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text2', this)">1B.Use two Input dialogs for Numbers and do calculations and show in Message Box.</button>
+
+<textarea id="text3" readonly>
+
+steps
+1.Open UiPath Studio and click on Process to create a new project.
+2.Enter Project Name, Location, Description, and click Create.
+3.Install UiPath Browser Extension (for Edge) if not already installed.
+4.Open Main.xaml and drag Open Browser activity into the Sequence.
+5.Copy and paste the Gmail Sign-in URL in the Url field of Open Browser.
+6.In Properties, set Browser Type = Edge.
+7.Click Start Recording (Web Recorder).
+8.In the new Edge tab:
+o Go to www.gmail.com
+o Enter Email → click Next
+o Enter Password → click Next
+o After login, click More → click Trash/Bin
+o Click the top checkbox to select all messages
+o Click Delete forever
+9.Stop recording, Save, and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text3', this)">2.Use Web Recorder to Empty Trash in Gmail.</button>
+
+
+<textarea id="text4" readonly>
+
+Steps:
+1.Open UiPath Studio and create a New Process project.
+2.Open Main.xaml.
+3.In Variables panel, create these variables and set default values:
+o num1 → Type: Int32 → Default: 10
+o name1 → Type: String → Default: "Gauri"
+o bool1 → Type: Boolean → Default: True
+o date1 → Type: DateTime → Default: Now
+o arr1 → Type: String[] → Default: {"Gauri","Padmini"}
+o gen1 → Type: GenericValue → Default: "Test"
+4.Drag Message Box into the sequence.
+5.In Text, write:
+ num1.ToString + " " + name1 + " " + bool1.ToString + " " + date1.ToString
+For DataTable:
+6.Search and drag Build Data Table activity.
+7.Create two columns:
+o Column1: roll no (String or Int32)
+o Column2: name (String)
+8.Create a variable dt1 of type DataTable and set it in Output of Build Data Table.
+9.Add some rows in Build Data Table and click OK.
+10.Drag Output Data Table activity.
+o Input: dt1
+o Output Text: create variable result (String)
+11.Drag Message Box and set Text = result.
+12.Run
+
+</textarea>
+    <button onclick="copyToClipboard('text4', this)">2B.Create different types of var(Num,DateTime,Boolean,Generic,Arr,DataTable),give default val,&show them in MsgBox. </button>
+
+<textarea id="text5" readonly>
+
+Steps:
+1.Open UiPath Studio and create a New Process project.
+2.In Main.xaml, create variables:
+o age (Int32)
+o result (String)
+3.Drag Input Dialog into the sequence.
+o Set Label = Enter your age
+o Set Result = age (or use String and convert to Int32 if needed)
+4.Drag If activity below Input Dialog.
+o Set Condition = age >= 18
+5.In Then block, drag Assign activity:
+o Left = result
+o Right = "You are eligible to vote"
+6.In Else block, drag Assign activity:
+o Left = result
+o Right = "You are not eligible to vote"
+7.Drag Message Box below the If activity.
+o Set Text = result
+8.Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text5', this)">3.Create an UiPath automation using decision statements: Validate the voter based on age.</button>
+
+<textarea id="text6" readonly>
+1.Open UiPath Studio and create a New Process project.
+2.In Main.xaml, create variables:
+o balance (Int32)
+o deposit (Int32)
+o withdraw (Int32)
+o finalBalance (Int32)
+o result (String)
+3.Drag Input Dialog three times into the sequence:
+o First: Enter initial balance → Result = balance
+o Second: Enter deposit amount → Result = deposit
+o Third: Enter withdraw amount → Result = withdraw
+4.Drag If activity below the Input Dialogs.
+o Condition: withdraw <= (balance + deposit)
+5.In Then block, add Assign:
+o finalBalance = balance + deposit - withdraw
+o result = "Transaction successful. Final Balance = " + finalBalance.ToString
+6.In Else block, add Assign:
+o result = "Insufficient balance"
+7.Drag Message Box below the If activity.
+o Set Text = result
+8.Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text6', this)">3B.Create a bot to withdraw and deposit amount and calculate final balance.</button>
+
+<textarea id="text7" readonly>
+
+1.Open UiPath Studio and create a New Process project.
+2.In Main.xaml, create variables:
+o filePath (String)
+o fileText (String)
+o result (String)
+3.Drag Assign activity.
+o Set filePath = "C:\Test\sample.txt" (or any file path)
+4.Drag If activity below Assign.
+o Condition: System.IO.File.Exists(filePath)
+5.In Then block:
+o Drag Read Text File → Output = fileText
+o Drag Assign → result = fileText
+6.In Else block:
+o Drag Assign → result = "File not found"
+7.Drag Message Box below the If activity.
+o Set Text = result
+8.Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text8', this)">3C.If file exists read file else display file not found.</button>
+
+<textarea id="text9" readonly>
+
+1.Open UiPath Studio and create a New Process project.
+2.Drag For Each activity into the sequence.
+3.Set TypeArgument = Int32.
+4.In Values, write: Enumerable.Range(1,10)
+5.Inside the For Each body, drag a Message Box.
+o Set Text = item.ToString
+6.Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text9', this)">3D.Create a bot to print numbers 1 to 10 using loop</button>
+
+<textarea id="text10" readonly>
+
+1.Open UiPath Studio and create a New Process project.
+2.In Main.xaml, create variables:
+o inputText (String)
+o reverseText (String)
+3.Drag Input Dialog into the sequence.
+o Set Label = Enter a string
+o Set Result = inputText
+4.Drag Assign activity below Input Dialog.
+o Set reverseText = ""
+5.Drag For Each activity below Assign.
+o Set TypeArgument = Char
+o Set Values = inputText.ToCharArray.Reverse()
+6.Inside For Each body, drag Assign activity.
+o Set reverseText = reverseText + item.ToString
+7.Below the For Each, drag Message Box.
+o Set Text = reverseText
+8.Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text10', this)">3E.Create a bot to reverse a string</button>
+
+<textarea id="text11" readonly>
+
+1.	Open UiPath Studio and create a New Process project.
+2.	Drag For Each activity into the sequence.
+3.	Set TypeArgument = Int32.
+4.	Set Values = Enumerable.Range(1,20).
+5.	Inside For Each, drag an If activity.
+o	Condition: item = 15
+o	In Then block, drag Break activity.
+6.	In Else block, add another If activity.
+o	Condition: item Mod 3 = 0
+o	In Then block, drag Continue activity.
+7.	Below the second If (inside Else), drag Message Box.
+o	Set Text = item.ToString
+8.	Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text11', this)">3F.Loop through numbers 1 to 20. Skip multiplies of 3 and stop if the number is equal to 15.</button>
+
+<textarea id="text12" readonly>
+
+1.	Open UiPath Studio and create a New Process project.
+2.	Drag Use Application/Browser activity into the sequence.
+3.	Click Indicate a target and select Notepad window.
+4.	Inside Do section, drag Type Into activity.
+o	Type: Hello this is a basic recording automation
+5.	Click + inside the same container and add Click activity.
+o	Indicate File → Save (or Save button) and save the file.
+6.	Add another Click activity.
+o	Indicate Minimize button of Notepad.
+7.	Add another Click activity.
+o	Indicate Maximize button of Notepad.
+8.	Add another Click activity.
+o	Indicate Close button of Notepad.
+9.	Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text12', this)">4.automate any process using basic recording (Existing Notepad - Type, save, minimise, maximise, close)</button>
+
+<textarea id="text13" readonly>
+
+1.	Open UiPath Studio and create a New Process project.
+2.	In Main.xaml, create variables:
+o	names (String[])
+o	count (Int32)
+3.	Drag Assign activity.
+o	Set names = {"John","Roshni","Jack","Amit","Nisha","Priya","Jill"}
+o	Set count = 0
+4.	Drag For Each activity below Assign.
+o	Set TypeArgument = String
+o	Set Values = names
+5.	Inside For Each body, drag If activity.
+o	Condition: item.ToLower.StartsWith("j")
+6.	In Then block, drag Assign.
+o	Set count = count + 1
+7.	Drag Message Box below the For Each.
+o	Set Text = "Number of names starting with J = " + count.ToString
+8.	Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text13', this)">5.Consider an array of names. We have to find out how many of these start with the letter “j”. Create an automation where the number of names starting with “j” is counted and the result is displayed.</button>
+
+<textarea id="text14" readonly>
+
+1.	Open UiPath Studio and create a New Process project.
+2.	Create a new Excel file (for example: Data.xlsx) with columns like Salary and Expense.
+3.	Drag Excel Application Scope and select the Excel file.
+4.	Inside it, drag Read Range activity.
+o	Create an output variable dt of type DataTable.
+5.	Drag For Each Row in Data Table and set DataTable = dt.
+6.	Create variables:
+o	count (Int32)
+o	savings (Int32)
+7.	Inside the loop, add Assign:
+o	count = count + 1
+8.	Add another Assign:
+o	savings = CInt(row("Salary")) - CInt(row("Expense"))
+9.	Add Write Cell activity.
+o	SheetName = "Sheet1"
+o	Cell = "D" + count.ToString
+o	Value = savings.ToString
+10.	Outside the loop, add Build Data Table activity and create a DataTable variable dt2.
+11.	Add Append Range activity.
+•	SheetName = "Sheet1"
+•	DataTable = dt2
+12.	Add a Message Box for confirmation.
+13.	Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text14', this)">6.Create an application automating the read, write and append operation on excel file.</button>
+
+<textarea id="text15" readonly>
+
+1.	Open UiPath Studio and create a New Process project.
+2.	Create an Excel file with some data (for example: Roll No, Name).
+3.	Drag Excel Application Scope and select the Excel file.
+4.	Inside it, drag Read Range activity.
+o	Create output variable excel_dt of type DataTable.
+5.	Drag Output Data Table activity.
+o	Set DataTable = excel_dt
+o	Create output variable output (String).
+6.	Drag Message Box activity.
+o	Set Text = output
+7.	Drag Build Data Table activity and create a DataTable variable dt.
+8.	Drag Write Range activity.
+o	SheetName = "Sheet2"
+o	Range = "A1"
+o	DataTable = dt
+9.	Save and click Run.
+
+
+</textarea>
+    <button onclick="copyToClipboard('text15', this)">6B.Create and automate the process to extract data from an excel file into a data table and vice versa.</button>
+
+<textarea id="text16" readonly>
+
+1.	Open UiPath Studio and create a New Process project.
+2.	Create a variable path (String) and set it to the folder path where Invoice PDFs are stored.
+3.	Drag Assign activity.
+o	Create variable files (String[])
+o	Set files = Directory.GetFiles(path)
+4.	Drag For Each activity.
+o	Set TypeArgument = String
+o	Set Values = files
+5.	Inside For Each, drag Start Process activity and pass current file to open the PDF.
+6.	Drag Excel Application Scope and select the Excel file where data will be saved.
+7.	Inside Do, drag Attach Window and indicate the PDF window.
+8.	Use Get Text (Full Text) to scrape:
+o	Invoice Number → store in variable invoice (String)
+o	Tax → store in variable tax (String)
+o	Total → store in variable total (String)
+9.	Add three Write Cell activities:
+o	Write invoice to column A
+o	Write tax to column B
+o	Write total to column C
+10.	Create variable counter (Int32) and increment it after each loop to move to next row.
+11.	Add a Message Box for confirmation.
+12.	Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text16', this)">7.Automate the following screen scraping methods using Uipath full test (Invoice PDF) 3 PDS (invoice) extract and put value in excel</button>
+
+<textarea id="text17" readonly>
+
+1.	Open UiPath Studio and create a New Process project.
+2.	Drag Use Desktop Outlook App activity.
+o	Choose Default Email Account.
+3.	Inside it, drag Send Outlook Mail Message activity.
+o	Enter To, Subject, and Body details.
+4.	Drag Message Box activity.
+o	Set Text = "Mail sent successfully"
+5.	(Optional) Drag For Each Mail activity if you want to process multiple mails.
+6.	Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text17', this)">7B.Automate the process of sending mail events.</button>
+
+<textarea id="text18" readonly>
+
+1.	Create an Excel file with columns: Name, Value, Description and enter data (Company Name, Company ID, Company URL).
+2.	Open UiPath Studio and create a New Process project.
+3.	Drag Assign activity and create a variable config_dic of type Dictionary(Of String, Object).
+o	Set value = New Dictionary(Of String, Object)
+4.	Drag Excel Application Scope and select the Excel file.
+5.	Inside it, drag Read Range activity.
+o	Set SheetName = "Sheet1"
+o	Create output variable dt (DataTable).
+6.	Drag For Each Row in Data Table activity.
+7.	Inside the loop, drag Assign activity.
+o	Left: config_dic(CurrentRow("Name").ToString)
+o	Right: CurrentRow("Value").ToString
+8.	Drag Message Box activity.
+o	Set Text = "Company Name: " + config_dic("Company Name").ToString + vbNewLine + "Company ID: " + config_dic("Company ID").ToString + vbNewLine + "Company URL: " + config_dic("Company URL").ToString
+9.	Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text18', this)">8.Demonstrate the use of config files in UiPath.</button>
+
+<textarea id="text19" readonly>
+
+1.Drag Try Catch activity into the sequence.
+2.Put all steps of the previous workflow inside the Try block.
+3.In the Catch section, add Exception.
+4.Inside the Catch block, drag Message Box activity.
+o Set Text = "Error occurred: " + exception.ToString
+5.To test the exception, make a small mistake in the Try block (for example, change a key name like "Company Name" to "Company Names").
+6.Save and click Run.
+
+</textarea>
+    <button onclick="copyToClipboard('text19', this)">8B.Demonstrate the Exception handling in Uipath.</button>
+
+<textarea id="text20" readonly>
+
+1.	Open UiPath Studio and create a New Process project. Add a Message Box in Main Sequence.
+2.	Publish the project. Choose Orchestrator Tenant Processes Feed and click Publish.
+3.	Login to UiPath Orchestrator. Go to Tenant → Folders → Manage Folders and create a new folder.
+4.	Go to Machines → Manage Machines in the new folder. Add a Standard Machine and set Unattended = 1. Click Provision.
+5.	Copy the Machine Key and click Update.
+6.	Open UiPath Assistant on the target machine. Sign out of the current account.
+7.	Go to Preferences → Orchestrator Settings. Set Connection Type = Machine Key. Paste Orchestrator URL and Machine Key, then Connect.
+8.	In Orchestrator, go to your folder → Automations → Processes → Add Process. Select the published package, choose entry point, set name and priority, and click Create.
+9.	Go to Tenant → Manage Access. Enable your user and set Unattended with Windows credentials. Click Update.
+10.	Go to Processes and click Start Job. Choose the user and machine, then click Start.
+s
+</textarea>
+    <button onclick="copyToClipboard('text20', this)">9.Create and provision Robot using Orchestrator</button>
+
+    <script>
+        function copyToClipboard(elementId, button) {
+            let textElement = document.getElementById(elementId);
+            navigator.clipboard.writeText(textElement.value).then(() => {
+                let originalText = button.innerText;
+                button.innerText = "Copied!";
+                setTimeout(() => {
+                    button.innerText = originalText;
+                }, 1500);
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
